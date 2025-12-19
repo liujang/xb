@@ -128,6 +128,7 @@ class General extends AbstractProtocol
             'encryption' => 'none', //加密方式
             'type' => $server['protocol_settings']['network'], //传输协议
             'flow' => $protocol_settings['flow'] ? $protocol_settings['flow'] : null,
+            'allowInsecure' => (int) data_get($protocol_settings, 'tls_settings.allow_insecure', 0),
         ];
         // 处理TLS
         switch ($server['protocol_settings']['tls']) {
