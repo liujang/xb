@@ -66,7 +66,7 @@ class Surge extends AbstractProtocol
             : File::get(base_path(self::DEFAULT_TEMPLATE_FILE)));
 
         // Subscription link
-        $subsDomain = request()->header('Host');
+        $subsDomain = request()->header('X-Subs-Domain');
         $subsURL = Helper::getSubscribeUrl($user['token'], $subsDomain ? 'https://' . $subsDomain : null);
 
         $config = str_replace('$subs_link', $subsURL, $config);
