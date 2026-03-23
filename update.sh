@@ -15,6 +15,7 @@ git fetch --all && git reset --hard origin/my && git pull origin my
 rm -rf composer.lock composer.phar
 wget https://github.com/composer/composer/releases/latest/download/composer.phar -O composer.phar
 php composer.phar update -vvv
+git submodule update --init --recursive --force
 php artisan xboard:update
 
 if [ -f "/etc/init.d/bt" ] || [ -f "/.dockerenv" ]; then
